@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import axios from 'axios';
+import emailjs from '@emailjs/browser';
 import {
     FaMapMarkerAlt,
     FaPhone,
@@ -50,8 +50,20 @@ const Contacto = () => {
         e.preventDefault();
         setFormStatus({ loading: true, success: false, error: false, message: '' });
 
+        const serviceId = 'service_1g7y8ym';
+        const templateId = 'template_l0qw2rb';
+        const publicKey = 'M7dZPdWTTaRUDzxh-';
+
+        const templateParams = {
+            name: formData.nombre,
+            email: formData.email,
+            message: `Teléfono: ${formData.telefono}\n\nMensaje:\n${formData.mensaje}`,
+            title: `Cotización: ${formData.servicio || 'General'}`,
+            time: new Date().toLocaleString('es-MX')
+        };
+
         try {
-            const response = await axios.post('http://localhost:5000/api/contact', formData);
+            await emailjs.send(serviceId, templateId, templateParams, publicKey);
 
             setFormStatus({
                 loading: false,
@@ -75,6 +87,7 @@ const Contacto = () => {
             }, 5000);
 
         } catch (error) {
+            console.error('EmailJS Error:', error);
             setFormStatus({
                 loading: false,
                 success: false,
@@ -109,16 +122,16 @@ const Contacto = () => {
         {
             icon: <FaEnvelope />,
             title: 'Email',
-            content: 'contacto@servillantascelaya.com.mx',
-            link: 'mailto:contacto@servillantascelaya.com.mx'
+            content: 'cservillantas@gmail.com',
+            link: 'mailto:cservillantas@gmail.com'
         },
         {
             icon: <FaClock />,
             title: 'Horario',
             content: (
                 <>
-                    <span>Lun - Vie: 8:00 AM - 7:00 PM</span>
-                    <span>Sábado: 8:00 AM - 5:00 PM</span>
+                    <span>Lun - Vie: 9:00 AM - 6:00 PM<br></br></span>
+                    <span>Sábado: 9:00 AM - 2:00 PM<br></br></span>
                     <span>Domingo: Cerrado</span>
                 </>
             ),

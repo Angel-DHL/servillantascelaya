@@ -54,7 +54,7 @@ const Header = () => {
                             </a>
                         </div>
                         <div className="horario">
-                            Lun - Vie: 8:00 AM - 7:00 PM | Sáb: 8:00 AM - 5:00 PM
+                            Lun - Vie: 9:00 AM - 6:00 PM | Sáb: 9:00 AM - 2:00 PM
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ const Header = () => {
                 <div className="container">
                     <nav className="navbar">
                         <Link to="/" className="logo">
-                            <img src="/images/logo.jpg" alt="Servillantas Celaya" />
+                            <img src="/images/logo.png" alt="Servillantas Celaya" />
                         </Link>
 
                         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>

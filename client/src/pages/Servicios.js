@@ -29,7 +29,7 @@ const Servicios = () => {
                 'Instalación incluida',
                 'Precios competitivos'
             ],
-            image: '/images/servicios/llantas.jpg'
+            image: '/images/servicios/img1.webp'
         },
         {
             id: 'alineacion',
@@ -44,7 +44,7 @@ const Servicios = () => {
                 'Corrección de ángulos',
                 'Mayor durabilidad de llantas'
             ],
-            image: '/images/servicios/alineacion.jpg'
+            image: '/images/servicios/img2.webp'
         },
         {
             id: 'suspension',
@@ -59,7 +59,7 @@ const Servicios = () => {
                 'Servicio de muelles',
                 'Diagnóstico computarizado'
             ],
-            image: '/images/servicios/suspension.jpg'
+            image: '/images/servicios/img3.webp'
         },
         {
             id: 'frenos',
@@ -74,7 +74,7 @@ const Servicios = () => {
                 'Diagnóstico del sistema ABS',
                 'Garantía en refacciones'
             ],
-            image: '/images/servicios/frenos.jpg'
+            image: '/images/servicios/img4.webp'
         },
         {
             id: 'aceite',
@@ -89,7 +89,7 @@ const Servicios = () => {
                 'Inspección de 25 puntos',
                 'Registro de mantenimiento'
             ],
-            image: '/images/servicios/aceite.jpg'
+            image: '/images/servicios/img5.webp'
         },
         {
             id: 'mecanica',
@@ -104,7 +104,7 @@ const Servicios = () => {
                 'Clutch y transmisión',
                 'Sistema de enfriamiento'
             ],
-            image: '/images/servicios/mecanica.jpg'
+            image: '/images/servicios/tienda.webp'
         }
     ];
 

@@ -33,7 +33,7 @@ const Blog = () => {
             author: 'Equipo Servillantas',
             date: '2024-01-15',
             readTime: '5 min',
-            image: '/images/blog/llantas-cambio.jpg',
+            image: '/images/servicios/img1.webp',
             content: `Las llantas son uno de los componentes más importantes de tu vehículo. 
       Aquí te compartimos las principales señales de que necesitas cambiarlas:
       
@@ -48,10 +48,10 @@ const Blog = () => {
             title: 'Importancia de la Alineación y Balanceo',
             excerpt: 'Conoce por qué estos servicios son fundamentales para el rendimiento y durabilidad de tus llantas.',
             category: 'Mantenimiento',
-            author: 'Ing. Carlos Méndez',
+            author: 'Equipo Servillantas',
             date: '2024-01-10',
             readTime: '4 min',
-            image: '/images/blog/alineacion.jpg',
+            image: '/images/servicios/img2.webp',
             content: `La alineación y balanceo son servicios esenciales que muchas veces se pasan por alto.
       
       Beneficios de una alineación correcta:
@@ -67,10 +67,10 @@ const Blog = () => {
             title: 'Mantenimiento Preventivo: Tu Mejor Inversión',
             excerpt: 'El mantenimiento preventivo puede ahorrarte miles de pesos en reparaciones mayores.',
             category: 'Mantenimiento',
-            author: 'Tec. Roberto Guzmán',
+            author: 'Equipo Servillantas',
             date: '2024-01-05',
             readTime: '6 min',
-            image: '/images/blog/mantenimiento.jpg',
+            image: '/images/servicios/tienda.webp',
             content: `Un programa de mantenimiento preventivo adecuado puede extender significativamente
       la vida útil de tu vehículo.
       
@@ -91,7 +91,7 @@ const Blog = () => {
             author: 'Equipo Servillantas',
             date: '2023-12-28',
             readTime: '5 min',
-            image: '/images/blog/frenos.jpg',
+            image: '/images/servicios/img4.webp',
             content: `Los frenos son el sistema de seguridad más importante de tu vehículo.
       
       Señales de que tus frenos necesitan atención:
@@ -108,10 +108,10 @@ const Blog = () => {
             title: 'Tecnología en Alineación Computarizada',
             excerpt: 'Descubre cómo la tecnología moderna mejora la precisión en la alineación de tu vehículo.',
             category: 'Tecnología',
-            author: 'Ing. Patricia Silva',
+            author: 'Equipo Servillantas',
             date: '2023-12-20',
             readTime: '4 min',
-            image: '/images/blog/tecnologia.jpg',
+            image: '/images/servicios/img2.webp',
             content: `La alineación computarizada representa un avance significativo en el servicio automotriz.
       
       Ventajas de la alineación computarizada:
@@ -131,7 +131,7 @@ const Blog = () => {
             author: 'Equipo Servillantas',
             date: '2023-12-15',
             readTime: '3 min',
-            image: '/images/blog/presion-llantas.jpg',
+            image: '/images/servicios/img1.webp',
             content: `Mantener la presión correcta en tus llantas es más importante de lo que piensas.
       
       Consecuencias de presión incorrecta:
@@ -147,10 +147,10 @@ const Blog = () => {
             title: 'Suspensión: Señales de Problemas',
             excerpt: 'Identifica los síntomas de problemas en la suspensión antes de que se conviertan en reparaciones costosas.',
             category: 'Mantenimiento',
-            author: 'Tec. Miguel Ángel Ruiz',
+            author: 'Equipo Servillantas',
             date: '2023-12-10',
             readTime: '5 min',
-            image: '/images/blog/suspension.jpg',
+            image: '/images/servicios/img3.webp',
             content: `Un sistema de suspensión en mal estado afecta la seguridad y comodidad.
       
       Señales de alerta:
@@ -170,7 +170,7 @@ const Blog = () => {
             author: 'Equipo Servillantas',
             date: '2023-12-05',
             readTime: '7 min',
-            image: '/images/blog/viaje.jpg',
+            image: '/images/hero.jpg',
             content: `Antes de salir de viaje, asegúrate de revisar estos puntos clave:
       
       Checklist pre-viaje:

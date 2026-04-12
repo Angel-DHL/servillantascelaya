@@ -129,7 +129,7 @@ const SobreNosotros = () => {
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <img src="/images/taller-historia.jpg" alt="Historia Servillantas Celaya" />
+                            <img src="/images/hero.jpg" alt="Historia Servillantas Celaya" />
                         </motion.div>
                     </div>
                 </div>

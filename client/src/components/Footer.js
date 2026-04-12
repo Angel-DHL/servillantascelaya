@@ -21,16 +21,16 @@ const Footer = () => {
                     <div className="footer-grid">
                         {/* Columna 1: Info */}
                         <div className="footer-column">
-                            <img src="/images/logo.jpg" alt="Servillantas Celaya" className="footer-logo" />
+                            <img src="/images/logo.png" alt="Servillantas Celaya" className="footer-logo" />
                             <p className="footer-description">
                                 Expertos en servicio automotriz con más de 15 años de experiencia.
                                 Comprometidos con la calidad y satisfacción de nuestros clientes.
                             </p>
                             <div className="social-links">
-                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                                <a href="https://www.facebook.com/profile.php?id=61586109131600" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                                     <FaFacebook />
                                 </a>
-                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <a href="https://www.instagram.com/cservillantas/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                     <FaInstagram />
                                 </a>
                                 <a href="https://wa.me/524611203488" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
@@ -80,15 +80,15 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <FaEnvelope />
-                                    <a href="mailto:contacto@servillantascelaya.com.mx">
-                                        contacto@servillantascelaya.com.mx
+                                    <a href="mailto:cservillantas@gmail.com">
+                                        cservillantas@gmail.com
                                     </a>
                                 </li>
                                 <li>
                                     <FaClock />
                                     <div>
-                                        <span>Lun - Vie: 8:00 AM - 7:00 PM</span>
-                                        <span>Sáb: 8:00 AM - 5:00 PM</span>
+                                        <span>Lun - Vie: 9:00 AM - 6:00 PM<br></br></span>
+                                        <span>Sáb: 9:00 AM - 2:00 PM</span>
                                     </div>
                                 </li>
                             </ul>
@@ -101,7 +101,7 @@ const Footer = () => {
                 <div className="container">
                     <p>&copy; {currentYear} Servillantas Celaya. Todos los derechos reservados.</p>
                     <p className="developer-credit">
-                        Desarrollado con ❤️ para ofrecer el mejor servicio
+                        Desarrollado con ❤️ por <a href="https://www.developensolutions.com.mx" color='blue' style={{ color: 'yellow' }} target="_blank" rel="noopener noreferrer">Developen Solutions</a>
                     </p>
                 </div>
             </div>

@@ -37,6 +37,45 @@ const Home = () => {
         }
     ];
 
+    const testimonials = [
+        {
+            name: 'Juan Pérez',
+            image: '/images/usuarios/usuario1.png',
+            text: 'Excelente servicio y atención. Las llantas que compré son de gran calidad y el servicio de alineación fue impecable.',
+            rating: 5
+        },
+        {
+            name: 'María García',
+            image: '/images/usuarios/usuario2.png',
+            text: 'Muy profesionales. Me explicaron todo el proceso de reparación de mi suspensión y los precios son muy justos.',
+            rating: 5
+        },
+        {
+            name: 'Ricardo Torres',
+            image: '/images/usuarios/usuario3.png',
+            text: 'El mejor lugar en Celaya para el mantenimiento de tu auto. Rápidos, honestos y con tecnología de punta.',
+            rating: 5
+        },
+        {
+            name: 'Laura Sánchez',
+            image: '/images/usuarios/usuario4.png',
+            text: 'Increíble atención al cliente. Me ayudaron a elegir las mejores llantas para mi camioneta según mi presupuesto.',
+            rating: 5
+        },
+        {
+            name: 'Miguel Hernández',
+            image: '/images/usuarios/usuario5.png',
+            text: 'Servicio de frenos rápido y seguro. Siento mi coche mucho mejor al conducir. ¡Totalmente recomendados!',
+            rating: 5
+        },
+        {
+            name: 'Ana Martínez',
+            image: '/images/usuarios/usuario6.png',
+            text: 'Llevo años trayendo mis vehículos aquí y nunca me han fallado. La garantía que ofrecen da mucha tranquilidad.',
+            rating: 5
+        }
+    ];
+
     const features = [
         { icon: <FaClock />, title: '15+ Años', text: 'De Experiencia' },
         { icon: <FaAward />, title: 'Garantía', text: 'En Todos los Servicios' },
@@ -144,6 +183,42 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Testimonials Section */}
+            <section className="section testimonials-section">
+                <div className="container">
+                    <div className="section-title">
+                        <h2>Lo Que Dicen Nuestros Clientes</h2>
+                        <p>Nuestra mayor satisfacción es tu seguridad y confianza</p>
+                    </div>
+
+                    <div className="testimonials-grid">
+                        {testimonials.map((testimonial, index) => (
+                            <motion.div
+                                key={index}
+                                className="testimonial-card"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                            >
+                                <div className="testimonial-header">
+                                    <img src={testimonial.image} alt={testimonial.name} className="testimonial-img" />
+                                    <div className="testimonial-info">
+                                        <h3>{testimonial.name}</h3>
+                                        <div className="rating">
+                                            {[...Array(testimonial.rating)].map((_, i) => (
+                                                <FaAward key={i} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="testimonial-text">"{testimonial.text}"</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* CTA Section */}
             <section className="cta-section">
                 <div className="container">
@@ -209,7 +284,7 @@ const Home = () => {
                             </Link>
                         </div>
                         <div className="trust-image">
-                            <img src="/images/taller.jpg" alt="Taller Servillantas Celaya" />
+                            <img src="/images/servicios/tienda.webp" alt="Taller Servillantas Celaya" />
                         </div>
                     </div>
                 </div>
