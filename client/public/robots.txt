@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.servillantascelaya.com.mx/sitemap.xml
