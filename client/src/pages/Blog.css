@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('/images/blog-hero.jpg');
+    background-image: url('../../public/images/hero.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
