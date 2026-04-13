@@ -63,7 +63,26 @@ const Contacto = () => {
         };
 
         try {
+            // Enviar email vía EmailJS
             await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+            // Guardar en la base de datos del Admin Panel
+            try {
+                await fetch('http://localhost:5000/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        nombre: formData.nombre,
+                        email: formData.email,
+                        telefono: formData.telefono,
+                        mensaje: formData.mensaje,
+                        servicio: formData.servicio
+                    })
+                });
+            } catch (dbError) {
+                console.error('Error guardando en BD local:', dbError);
+                // No detenemos el flujo si falla la BD local, el correo ya se envió
+            }
 
             setFormStatus({
                 loading: false,
@@ -335,7 +354,7 @@ const Contacto = () => {
 
                             <div className="map-embed">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119431.89058203486!2d-100.88905934999999!3d20.5287823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b7d61f1a6fb%3A0x6ab3b5b3e3e1e1!2sCelaya%2C%20Gto.!5e0!3m2!1ses!2smx!4v1234567890"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3736.1368595568555!2d-100.822631725287!3d20.540989804257125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842cba939c7d5753%3A0x1b74ab59fc1df7b!2sSERVILLANTAS%20Suc.%20Tecnol%C3%B3gico%20Cel.!5e0!3m2!1ses-419!2smx!4v1712984128543!5m2!1ses-419!2smx"
                                     width="100%"
                                     height="350"
                                     style={{ border: 0, borderRadius: '10px' }}
@@ -355,6 +374,7 @@ const Contacto = () => {
                 <div className="container">
                     <div className="section-title">
                         <h2>Preguntas Frecuentes</h2>
+                        <p>Resolvemos tus dudas más comunes</p>
                     </div>
                     <div className="faq-grid">
                         <motion.div
@@ -364,7 +384,7 @@ const Contacto = () => {
                             viewport={{ once: true }}
                         >
                             <h3>¿Cuál es el horario de atención?</h3>
-                            <p>Lunes a Viernes de 8:00 AM a 7:00 PM y Sábados de 8:00 AM a 5:00 PM.</p>
+                            <p>Lunes a Viernes de 9:00 AM a 6:00 PM y Sábados de 9:00 AM a 2:00 PM. Domingos cerrado.</p>
                         </motion.div>
                         <motion.div
                             className="faq-item"
@@ -374,7 +394,7 @@ const Contacto = () => {
                             viewport={{ once: true }}
                         >
                             <h3>¿Necesito cita previa?</h3>
-                            <p>No es obligatorio, pero te recomendamos agendar cita para una atención más rápida.</p>
+                            <p>No es obligatorio, pero te recomendamos contactarnos previamente para asegurar una atención más rápida y eficiente.</p>
                         </motion.div>
                         <motion.div
                             className="faq-item"
@@ -383,8 +403,8 @@ const Contacto = () => {
                             transition={{ delay: 0.2 }}
                             viewport={{ once: true }}
                         >
-                            <h3>¿Ofrecen garantía?</h3>
-                            <p>Sí, todos nuestros servicios y refacciones cuentan con garantía.</p>
+                            <h3>¿Ofrecen garantía en sus servicios?</h3>
+                            <p>Sí, todos nuestros servicios y refacciones cuentan con garantía. La duración varía según el tipo de servicio y producto.</p>
                         </motion.div>
                         <motion.div
                             className="faq-item"
@@ -394,11 +414,67 @@ const Contacto = () => {
                             viewport={{ once: true }}
                         >
                             <h3>¿Aceptan tarjetas?</h3>
-                            <p>Sí, aceptamos efectivo, tarjetas de débito y crédito.</p>
+                            <p>Sí, aceptamos efectivo, tarjetas de débito y crédito, y transferencias bancarias.</p>
+                        </motion.div>
+                        <motion.div
+                            className="faq-item"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            viewport={{ once: true }}
+                        >
+                            <h3>¿Cuánto tiempo tarda un servicio?</h3>
+                            <p>Depende del servicio. Una alineación y balanceo puede tomar aproximadamente 45 minutos, mientras que un servicio de frenos de 1 a 3 horas.</p>
+                        </motion.div>
+                        <motion.div
+                            className="faq-item"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5 }}
+                            viewport={{ once: true }}
+                        >
+                            <h3>¿Puedo esperar mientras realizan el servicio?</h3>
+                            <p>¡Claro! Contamos con un área de espera cómoda. También puedes dejar tu vehículo y recogerlo cuando esté listo.</p>
                         </motion.div>
                     </div>
                 </div>
             </section>
+
+            {/* FAQPage Schema */}
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "¿Cuál es el horario de atención de Servillantas Celaya?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Lunes a Viernes de 9:00 AM a 6:00 PM y Sábados de 9:00 AM a 2:00 PM. Domingos cerrado."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "¿Ofrecen garantía en sus servicios?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Sí, todos nuestros servicios y refacciones cuentan con garantía."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "¿Aceptan tarjetas en Servillantas Celaya?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Sí, aceptamos efectivo, tarjetas de débito y crédito, y transferencias bancarias."
+                                }
+                            }
+                        ]
+                    })}
+                </script>
+            </Helmet>
         </>
     );
 };

@@ -5,19 +5,62 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta name="theme-color" content="#000b43" />
-    <meta name="description"
-        content="Servillantas Celaya - Expertos en servicio automotriz. Llantas, alineación, balanceo, suspensión y más en Celaya, Guanajuato." />
 
-    <!-- Verificación de propiedad (agregar cuando tengas las cuentas) -->
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Servillantas Celaya - Expertos en servicio automotriz. Venta de llantas, alineación, balanceo, suspensión, frenos y más en Celaya, Guanajuato. +15 años de experiencia. ¡Llama al 461 120 3488!" />
+    <meta name="keywords" content="llantas celaya, alineación y balanceo celaya, taller mecánico celaya, suspensión celaya, frenos celaya, servicio automotriz celaya, venta de llantas celaya, cambio de aceite celaya, mecánica general celaya" />
+    <meta name="author" content="Servillantas Celaya" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://www.servillantascelaya.com.mx/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.servillantascelaya.com.mx/" />
+    <meta property="og:title" content="Servillantas Celaya - Expertos en Servicio Automotriz" />
+    <meta property="og:description" content="Venta de llantas, alineación, balanceo, suspensión y frenos. Más de 15 años de experiencia en Celaya, Guanajuato." />
+    <meta property="og:image" content="https://www.servillantascelaya.com.mx/images/logo.png" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Servillantas Celaya" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Servillantas Celaya - Expertos en Servicio Automotriz" />
+    <meta name="twitter:description" content="Venta de llantas, alineación, balanceo y más. Servicio profesional en Celaya, Guanajuato." />
+    <meta name="twitter:image" content="https://www.servillantascelaya.com.mx/images/logo.png" />
+
+    <!-- Google Search Console Verification (reemplaza con tu código real) -->
     <meta name="google-site-verification" content="tu-codigo-de-verificacion" />
 
-    <!-- Schema.org markup para Google -->
+    <!-- Google Tag Manager -->
+    <!--
+    Para activar Google Tag Manager:
+    1. Ve a https://tagmanager.google.com/
+    2. Crea una cuenta con el nombre "Servillantas Celaya"
+    3. Crea un contenedor web con la URL www.servillantascelaya.com.mx
+    4. Copia tu ID de contenedor (GTM-XXXXXXX)
+    5. Reemplaza "GTM-XXXXXXX" en las dos secciones de abajo
+    6. Descomenta los scripts (quita los <!- - y - ->)
+    -->
+    <!--
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    -->
+    <!-- End Google Tag Manager -->
+
+    <!-- Schema.org - Negocio Automotriz -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "AutomotiveBusiness",
       "name": "Servillantas Celaya",
+      "alternateName": "SERVILLANTAS Suc. Tecnológico Cel.",
       "image": "https://www.servillantascelaya.com.mx/images/logo.png",
       "@id": "https://www.servillantascelaya.com.mx",
       "url": "https://www.servillantascelaya.com.mx",
@@ -34,8 +77,8 @@
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 20.5287823,
-        "longitude": -100.8155704
+        "latitude": 20.540989804257125,
+        "longitude": -100.822631725287
       },
       "openingHoursSpecification": [
         {
@@ -58,36 +101,82 @@
         }
       ],
       "sameAs": [
-        "https://www.facebook.com/servillantascelaya",
-        "https://www.instagram.com/servillantascelaya"
-      ]
+        "https://www.facebook.com/profile.php?id=61586109131600",
+        "https://www.instagram.com/cservillantas/"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios Automotrices",
+        "itemListElement": [
+          {
+            "@type": "OfferCatalog",
+            "name": "Venta de Llantas"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Alineación y Balanceo"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Suspensión"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Sistema de Frenos"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Cambio de Aceite"
+          },
+          {
+            "@type": "OfferCatalog",
+            "name": "Mecánica General"
+          }
+        ]
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150",
+        "bestRating": "5"
+      }
+    }
+    </script>
+
+    <!-- Schema.org - WebSite (para búsqueda de sitio en Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Servillantas Celaya",
+      "url": "https://www.servillantascelaya.com.mx",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.servillantascelaya.com.mx/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
 
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <title>Servillantas Celaya - Expertos en Servicio Automotriz</title>
+    <title>Servillantas Celaya - Expertos en Servicio Automotriz | Llantas, Alineación y Balanceo en Celaya</title>
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) - Descomenta cuando tengas tu GTM ID -->
+    <!--
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    -->
+    <!-- End Google Tag Manager (noscript) -->
+
     <noscript>Necesitas habilitar JavaScript para ejecutar esta aplicación.</noscript>
     <div id="root"></div>
 
     <!-- Chatway Widget -->
-    <script>
-        window.chatwayConfig = {
-            widget_id: 'TU_WIDGET_ID_DE_CHATWAY'
-        };
-        (function (d, t) {
-            var s = d.createElement(t), options = {
-                script: "https://widget.chatway.app/v2/widget.js?id=" + window.chatwayConfig.widget_id
-            };
-            s.src = options.script;
-            s.async = true;
-            d.getElementsByTagName('head')[0].appendChild(s);
-        })(document, 'script');
-    </script>
+    <script id="chatway" async="true" src="https://cdn.chatway.app/widget.js?id=JBfg6XiUSq2M"></script>
 </body>
 
 </html>

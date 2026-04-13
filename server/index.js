@@ -4,6 +4,13 @@ import helmet from 'helmet';
 import compression from 'compression';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const dbPath = path.join(__dirname, 'db.json');
 
 dotenv.config();
 
@@ -18,7 +25,33 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Configurar nodemailer
+// Database Utility Functions
+const readDB = () => {
+    try {
+        if (!fs.existsSync(dbPath)) {
+            // Inicializar si no existe
+            const initialData = { metrics: { visits: 0 }, leads: [], contacts: [] };
+            fs.writeFileSync(dbPath, JSON.stringify(initialData, null, 2));
+            return initialData;
+        }
+        const data = fs.readFileSync(dbPath, 'utf8');
+        return JSON.parse(data);
+    } catch (err) {
+        console.error("Error reading DB:", err);
+        return { metrics: { visits: 0 }, leads: [], contacts: [] };
+    }
+};
+
+const writeDB = (data) => {
+    try {
+        fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    } catch (err) {
+        console.error("Error writing DB:", err);
+    }
+};
+
+// Configurar nodemailer (Mantenido por si acaso)
+/*
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -26,43 +59,70 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS
     }
 });
+*/
 
-// Endpoint para formulario de contacto
+// --- ENDPOINTS PARA EL ADMIN PANEL Y POPUP ---
+
+// 1. Guardar un Lead del Popup
+app.post('/api/leads', (req, res) => {
+    const { name, contact } = req.body;
+    if (!name || !contact) {
+        return res.status(400).json({ error: 'Nombre y contacto son requeridos.' });
+    }
+
+    const db = readDB();
+    const newLead = {
+        id: Date.now().toString(),
+        name,
+        contact,
+        date: new Date().toISOString()
+    };
+    db.leads.push(newLead);
+    writeDB(db);
+
+    res.status(201).json({ message: 'Lead guardado', lead: newLead });
+});
+
+// 2. Registrar una visita
+app.post('/api/metrics/visit', (req, res) => {
+    const db = readDB();
+    db.metrics.visits += 1;
+    writeDB(db);
+    res.status(200).json({ message: 'Visit logged', visits: db.metrics.visits });
+});
+
+// 3. Endpoint para formulario de contacto
 app.post('/api/contact', async (req, res) => {
     const { nombre, email, telefono, mensaje, servicio } = req.body;
 
-    try {
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: process.env.CONTACT_EMAIL,
-            subject: `Nuevo contacto desde la web - ${servicio || 'General'}`,
-            html: `
-        <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4;">
-          <div style="max-width: 600px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 10px;">
-            <h2 style="color: #000b43; border-bottom: 3px solid #f4fe00; padding-bottom: 10px;">
-              Nuevo Mensaje de Contacto
-            </h2>
-            <div style="margin: 20px 0;">
-              <p><strong style="color: #000b43;">Nombre:</strong> ${nombre}</p>
-              <p><strong style="color: #000b43;">Email:</strong> ${email}</p>
-              <p><strong style="color: #000b43;">Teléfono:</strong> ${telefono}</p>
-              ${servicio ? `<p><strong style="color: #000b43;">Servicio:</strong> ${servicio}</p>` : ''}
-              <p><strong style="color: #000b43;">Mensaje:</strong></p>
-              <p style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid #0159d5;">
-                ${mensaje}
-              </p>
-            </div>
-          </div>
-        </div>
-      `
-        };
+    // Guardar en la base de datos JSON
+    const db = readDB();
+    const newContact = {
+        id: Date.now().toString(),
+        nombre,
+        email,
+        telefono,
+        servicio,
+        mensaje,
+        date: new Date().toISOString()
+    };
+    db.contacts.push(newContact);
+    writeDB(db);
 
-        await transporter.sendMail(mailOptions);
-        res.status(200).json({ message: 'Mensaje enviado exitosamente' });
-    } catch (error) {
-        console.error('Error enviando email:', error);
-        res.status(500).json({ message: 'Error al enviar el mensaje' });
-    }
+    // Opcional: Si quieren seguir enviando correos desde el backend además del frontend:
+    // try {
+    //    // ... lógica de nodemailer ...
+    // } catch(...) {}
+
+    res.status(200).json({ message: 'Contacto guardado exitosamente' });
+});
+
+// 4. Obtener todos los datos para el Admin Dashboard
+app.get('/api/admin/data', (req, res) => {
+    // Aquí idealmente validaríamos un token JWT, pero por simplicidad de este panel lo omitiremos
+    // ya que la validación se hará de forma estática en el frontend.
+    const db = readDB();
+    res.status(200).json(db);
 });
 
 // Health check

@@ -49,22 +49,27 @@ const SobreNosotros = () => {
         {
             year: '2008',
             title: 'Nuestros Inicios',
-            description: 'Comenzamos como un pequeño taller familiar con el sueño de brindar el mejor servicio automotriz en Celaya.'
+            description: 'Comenzamos como un pequeño taller familiar con el sueño de brindar el mejor servicio automotriz en Celaya. Con dedicación y esfuerzo, sentamos las bases de lo que hoy somos.'
         },
         {
             year: '2012',
             title: 'Expansión de Servicios',
-            description: 'Incorporamos equipos de última generación para alineación computarizada y diagnóstico electrónico.'
+            description: 'Incorporamos equipos de última generación para alineación computarizada y diagnóstico electrónico, ampliando nuestra capacidad de atención.'
         },
         {
             year: '2016',
-            title: 'Reconocimiento',
-            description: 'Nos convertimos en el taller de confianza de miles de familias celayenses.'
+            title: 'Reconocimiento Regional',
+            description: 'Nos convertimos en el taller de confianza de miles de familias celayenses, consolidándonos como referentes en el sector automotriz del Bajío.'
         },
         {
-            year: '2023',
-            title: 'Actualidad',
-            description: 'Continuamos innovando y brindando servicios de excelencia con tecnología de punta.'
+            year: '2020',
+            title: 'Innovación Constante',
+            description: 'A pesar de los desafíos globales, invertimos en nuevas tecnologías y capacitación continua para nuestro equipo.'
+        },
+        {
+            year: '2024',
+            title: 'Líderes en Celaya',
+            description: 'Continuamos innovando con tecnología de punta, presencia digital y un compromiso inquebrantable con la excelencia en el servicio.'
         }
     ];
 
@@ -110,16 +115,20 @@ const SobreNosotros = () => {
                             <p>
                                 Servillantas Celaya nació en 2008 como un emprendimiento familiar con la visión
                                 de ofrecer servicios automotrices de la más alta calidad en Celaya, Guanajuato.
+                                Desde el primer día, nuestro objetivo ha sido claro: ganarnos la confianza de
+                                cada cliente a través de la honestidad, el profesionalismo y el trabajo bien hecho.
                             </p>
                             <p>
                                 Lo que comenzó como un pequeño taller con equipos básicos, se ha transformado
                                 en uno de los talleres más confiables y mejor equipados de la región, gracias
-                                a la confianza que nuestros clientes han depositado en nosotros.
+                                a la confianza que miles de familias celayenses han depositado en nosotros
+                                durante más de 15 años.
                             </p>
                             <p>
-                                Hoy contamos con tecnología de punta, técnicos altamente capacitados y lo más
-                                importante: el compromiso inquebrantable de brindar un servicio excepcional
-                                a cada uno de nuestros clientes.
+                                Hoy contamos con tecnología de punta, técnicos altamente capacitados y una
+                                amplia variedad de servicios que cubren todas las necesidades de tu vehículo.
+                                Pero lo más importante sigue siendo nuestro compromiso inquebrantable de
+                                brindar un servicio excepcional a cada uno de nuestros clientes.
                             </p>
                         </motion.div>
                         <motion.div
