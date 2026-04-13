@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FaChartLine, FaUsers, FaEnvelope, FaSignOutAlt, FaEye } from 'react-icons/fa';
+import { API_URL } from '../config';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -19,7 +20,7 @@ const AdminDashboard = () => {
 
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/admin/data');
+                const response = await fetch(`${API_URL}/api/admin/data`);
                 if (response.ok) {
                     const result = await response.json();
                     setData(result);

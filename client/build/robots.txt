@@ -1,0 +1,10 @@
+# Servillantas Celaya - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.servillantascelaya.com.mx/sitemap.xml
+
+# Bloquear carpetas internas
+Disallow: /static/
+Disallow: /node_modules/

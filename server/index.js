@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5000;
 app.use(helmet());
 app.use(compression());
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:3000'
+    origin: ['http://localhost:3000', 'https://www.servillantascelaya.com.mx', 'https://servillantascelaya.com.mx']
 }));
 app.use(express.json());
 
