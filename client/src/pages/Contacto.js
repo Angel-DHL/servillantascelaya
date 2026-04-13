@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { API_URL } from '../config';
 import {
     FaMapMarkerAlt,
     FaPhone,
@@ -68,7 +69,7 @@ const Contacto = () => {
 
             // Guardar en la base de datos del Admin Panel
             try {
-                await fetch('http://localhost:5000/api/contact', {
+                await fetch(`${API_URL}/api/contact`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

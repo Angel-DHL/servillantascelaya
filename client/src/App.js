@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import LeadPopup from './components/LeadPopup';
+import { API_URL } from './config';
 import Home from './pages/Home';
 import Servicios from './pages/Servicios';
 import SobreNosotros from './pages/SobreNosotros';
@@ -23,7 +24,7 @@ const App = () => {
             const hasSentVisit = sessionStorage.getItem('visitTracked');
             if (!hasSentVisit) {
                 try {
-                    await fetch('http://localhost:5000/api/metrics/visit', { method: 'POST' });
+                    await fetch(`${API_URL}/api/metrics/visit`, { method: 'POST' });
                     sessionStorage.setItem('visitTracked', 'true');
                 } catch (err) {
                     console.error("No se pudo registrar la visita:", err);

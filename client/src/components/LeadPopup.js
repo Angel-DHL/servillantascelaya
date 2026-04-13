@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaTimes, FaGift } from 'react-icons/fa';
+import { API_URL } from '../config';
 import './LeadPopup.css';
 
 const LeadPopup = () => {
@@ -35,9 +36,7 @@ const LeadPopup = () => {
         setStatus('loading');
         
         try {
-            // El puerto del backend por defecto suele ser el 5000, 
-            // aunque podemos confiar en proxy si está configurado
-            const response = await fetch('http://localhost:5000/api/leads', {
+            const response = await fetch(`${API_URL}/api/leads`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
